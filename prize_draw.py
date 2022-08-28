@@ -14,4 +14,4 @@ for i in range(1, number_participants + 1):
 winner = random.choice(participants_names)
 print(f'Number of participants: {number_participants}')
 print(f'Participants names: {participants_names}')
-print(f'The winner is: *** {winner} ***')
+print(f'The winner is: **** {winner} ****')
