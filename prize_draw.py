@@ -15,3 +15,4 @@ winner = random.choice(participants_names)
 print(f'Number of participants: {number_participants}')
 print(f'Participants names: {participants_names}')
 print(f'The winner is: *** {winner} ***')
+
