@@ -1,4 +1,5 @@
 # convert fahrenheit to celsius
+# Author Marcelo Magario
 fah = float(input('What is the Fahrenheit temperature you want to convert? '))
 
 
