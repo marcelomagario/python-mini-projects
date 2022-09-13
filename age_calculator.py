@@ -25,8 +25,6 @@ check_date(input_date)
 print(frase)
 
 
-
-
 # today_is = datetime.datetime.now() # receive today's date
 # print(today_is)
 # print(f'Today is: {today_is.strftime("%A")} - {today_is.day}/{today_is.month}/{today_is.year}')
