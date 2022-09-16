@@ -106,10 +106,33 @@ comprados.
 
 """
 
-#from collections import Counter
+# from collections import Counter
 def fechar_conta(*itens):
     """Escreva aqui em baixo a sua solução"""
-    print(itens)
+    especificacoes = ['Cachorro Quente', 'Bauru Simples', 'Bauru com Ovo', 'Hamburger', 'Cheeseburger', 'Refrigerante']
+    codigos = ['100', '101', '102', '103', '104', '105']
+    precos_unitario = [1.2, 1.3, 1.5, 1.2, 1.0]
+    count_100, count_101, count_102, count_103, count_104, count_105 = 0, 0, 0, 0, 0, 0
+    for i in range(len(itens)):
+        if itens[i][0] == '100':
+            count_100 += itens[i][1]
+        elif itens[i][0] == '101':
+            count_101 += itens[i][1]
+        elif itens[i][0] == '102':
+            count_102 += itens[i][1]
+        elif itens[i][0] == '103':
+            count_103 += itens[i][1]
+        elif itens[i][0] == '104':
+            count_104 += itens[i][1]
+        elif itens[i][0] == '105':
+            count_105 += itens[i][1]
+    qtdes_itens = [count_100, count_101, count_102, count_103, count_104, count_105]
+
+    for especificacao, codigo, preco_unitario, qtde_iten in zip(especificacoes, codigos, precos_unitario, qtdes_itens):
+        if qtde_iten != 0:
+            print(f'{especificacao}  | {codigo}, {preco_unitario} | {qtde_iten} | {preco_unitario * qtde_iten}')
+
+
     # quantidade_por_produtos = {}
     # for i in range(len(itens)):
     #     for k, v in quantidade_por_produtos.items():
