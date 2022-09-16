@@ -111,31 +111,41 @@ def fechar_conta(*itens):
     """Escreva aqui em baixo a sua solução"""
     especificacoes = ['Cachorro Quente', 'Bauru Simples', 'Bauru com Ovo', 'Hamburger', 'Cheeseburger', 'Refrigerante']
     codigos = ['100', '101', '102', '103', '104', '105']
-    precos_unitario = [1.2, 1.3, 1.5, 1.2, 1.0]
-    count_100, count_101, count_102, count_103, count_104, count_105 = 0, 0, 0, 0, 0, 0
+    precos_unitario = [1.2, 1.3, 1.5, 1.2, 1.3, 1.0]
+    qtdes_itens = [0, 0, 0, 0, 0, 0]
+    valor_total_por_itens = [0, 0, 0, 0, 0, 0]
     for i in range(len(itens)):
         if itens[i][0] == '100':
-            count_100 += itens[i][1]
+            qtdes_itens[0] += itens[i][1]
         elif itens[i][0] == '101':
-            count_101 += itens[i][1]
+            qtdes_itens[1] += itens[i][1]
         elif itens[i][0] == '102':
-            count_102 += itens[i][1]
+            qtdes_itens[2] += itens[i][1]
         elif itens[i][0] == '103':
-            count_103 += itens[i][1]
+            qtdes_itens[3] += itens[i][1]
         elif itens[i][0] == '104':
-            count_104 += itens[i][1]
+            qtdes_itens[4] += itens[i][1]
         elif itens[i][0] == '105':
-            count_105 += itens[i][1]
-    qtdes_itens = [count_100, count_101, count_102, count_103, count_104, count_105]
+            qtdes_itens[5] += itens[i][1]
+    qtde_total = sum(qtdes_itens)
+    # Valor total por item
+    for i in range(len(precos_unitario)):
+        valor_total_por_itens[i] = qtdes_itens[i] * precos_unitario[i]
 
-    for especificacao, codigo, preco_unitario, qtde_iten in zip(especificacoes, codigos, precos_unitario, qtdes_itens):
+    # Cabeçalho
+    print('_____________________________________________________________________________')
+    print('|                              RESUMO DA CONTA                              |')
+    print('|---------------------------------------------------------------------------|')
+    print('| Epecificação     | Código | Preço Unitário (R$) | Quantidade | Total (R$) |')
+    # Itens
+    for especificacao, codigo, preco_unitario, qtde_iten, valor_do_item in zip(especificacoes, codigos, precos_unitario, qtdes_itens, valor_total_por_itens):
         if qtde_iten != 0:
-            print(f'{especificacao}  | {codigo}, {preco_unitario} | {qtde_iten} | {preco_unitario * qtde_iten}')
+            print(f'| {especificacao:16s} | {codigo}    | {preco_unitario:<19.2f} | {qtde_iten:10d} | {valor_do_item:10.2f} |')
 
+    valor_total = sum(valor_total_por_itens)
 
-    # quantidade_por_produtos = {}
-    # for i in range(len(itens)):
-    #     for k, v in quantidade_por_produtos.items():
-    #         quantidade_por_produtos[k] = v
-    # print(quantidade_por_produtos)
+        # Total Geral
+    print('|---------------------------------------------------------------------------|')
+    print(f'| Total Geral:                                    | {qtde_total:10d} | {valor_total:10.2f} |')
+    print('-----------------------------------------------------------------------------')
 
